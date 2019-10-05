@@ -1,0 +1,15 @@
+
+git 연동하기
+
+1. clone 설정 (git->로컬)
+  0) 해당폴더로 이동
+  1) git clone 저장소
+  2) git config user.name 이름
+  3) git config user.email 이메일
+
+2. 로컬에 처음 생성 후 git에 연동
+  0) 해당폴더로 이동
+  1) git init or atom에서 add repository
+  2) git config user.name 이름
+  3) git config user.email 이메일
+  4) git remote add origin 저장소

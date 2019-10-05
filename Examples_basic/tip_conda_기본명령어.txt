@@ -1,0 +1,33 @@
+
+conda --version       설치된 아나콘다 버전 확인
+conda clean           설치된 패키지를 모두 삭제
+conda create          새로운 가상환경 생성
+conda config          설정 보기, 신규 설정, 수정등
+conda info            설치된 아나콘다 정보
+conda install         패키지 설치
+conda list            설치된 패키지 정보(환경 별로 다름)
+conda remove          설치된 패키지 삭제
+conda search          설치된 패키지 조회
+conda uninstall       Alias for conda remove
+conda update          최신 버전으로 업데이트
+conda upgrade         Alias for conda update
+
+
+- 주요 예제
+conda create -n ??? python=3.6
+새로운 가상 환경을 생성 합니다.
+
+conda info
+설지된 아나콘다 정보를 조회 합니다.
+
+conda install ???
+tensorflow 가상 환경에 scipy를 설치 합니다.
+
+conda remove –n base msgpack-python
+base에 설치한 msgpack-python를 제거 합니다.
+
+conda list
+현재 가상환경에 설치된 패키지 리스트를 조회 합니다.
+
+conda update -n base conda
+base의 conda를 최신 버전으로 업데이트 합니다.

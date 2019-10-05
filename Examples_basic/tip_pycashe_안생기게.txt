@@ -1,0 +1,6 @@
+
+
+import sys
+sys.dont_write_bytecode=True
+
+이걸 넣어주면 됨

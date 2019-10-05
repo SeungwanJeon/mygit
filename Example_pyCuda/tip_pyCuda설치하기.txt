@@ -1,0 +1,49 @@
+1. Cuda 설치
+    10.1도 구동되는것 확인
+
+2. Visual Studio 설치
+    이때 C++컴파일러 옵션 설정 필수
+    2019버전도 구동확인
+
+3. 환경 변수 설정으로 cl.exe 있는곳 추가
+    VS14 버전은 Visual Studio 14.0\VC++\bin
+    VS2019 버전은 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\Hostx64\x64
+
+4. pyCuda를 설치
+    pip install pyCuda
+
+5. 예제코드 실행
+-----------------------------------------------------
+    import pycuda.autoinit
+    import pycuda.driver as drv
+    import numpy
+
+    from pycuda.compiler import SourceModule
+    mod = SourceModule("""
+    __global__ void multiply_them(float *dest, float *a, float *b)
+    {
+      const int i = threadIdx.x;
+      dest[i] = a[i] * b[i];
+    }
+    """)
+
+    multiply_them = mod.get_function("multiply_them")
+
+    a = numpy.random.randn(40).astype(numpy.float32)
+    b = numpy.random.randn(40).astype(numpy.float32)
+
+    dest = numpy.zeros_like(a)
+    multiply_them(
+            drv.Out(dest), drv.In(a), drv.In(b),
+            block=(400,1,1), grid=(1,1))
+
+    print(a)
+    print(b)
+    print(dest)
+    print(dest-a*b)
+-----------------------------------------------------
+[출처] pyCuda로 GPU 프로그래밍 시작하기|작성자 쌍칼
+
+
+유용한 예제들
+https://wiki.tiker.net/PyCuda/Examples

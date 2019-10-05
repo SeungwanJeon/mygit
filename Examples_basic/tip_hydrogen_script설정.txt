@@ -1,0 +1,24 @@
+
+Hydrogen을 설치하면 기본적으로 project가 시작된곳을 현재 디렉토리로 잡음
+
+따라서 아래와같은 추가적인 작업을해줘야함
+--------------------------
+import sys
+sys.path.append('폴더')
+------------------------
+
+그냥 아래로 들어가서 실행 파일이 있는곳을 현디렉토리로 잡는게 편함
+안그럼 모듈 등을 import한것을 실행할때 자주에러남
+
+Settings tab>Packages>Hydrogen>Settings>Directory to start Kernel in.
+
+
+마찬가지로 script 패키지도 설정해줘야 함.
+
+
+
+가상환경을 바꾸면 하이드로젠이 인식을 못함. 그럴경우 아래와같이 해준다.
+-------------------------------------
+source activate thisenv
+python -m ipykernel install --user --name thisenv
+--------------------------------
